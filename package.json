@@ -1,0 +1,53 @@
+{
+	"name": "vscode-ext-sync-test",
+	"displayName": "Extension State Sync Test",
+	"description": "Extension State Sync Test for VS Code",
+	"version": "0.0.1",
+	"publisher": "vscode-sbatten",
+	"repository": "https://github.com/Microsoft/vscode-extension-samples/helloworld-sample",
+	"engines": {
+		"vscode": "^1.51.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"enableProposedApi": true,
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "sync-test.check-synced-state",
+				"title": "Check Sync State"
+			},
+			{
+				"command": "sync-test.push-synced-state",
+				"title": "Push Sync State"
+			},
+			{
+				"command": "sync-test.delete-synced-state",
+				"title": "Delete Sync State"
+			},
+			{
+				"command": "sync-test.register-synced-state",
+				"title": "Register Sync State"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint . --ext .ts,.tsx",
+		"watch": "tsc -watch -p ./"
+	},
+	"devDependencies": {
+		"@types/node": "^12.12.0",
+		"@types/vscode": "^1.34.0",
+		"@typescript-eslint/eslint-plugin": "^3.0.2",
+		"@typescript-eslint/parser": "^3.0.2",
+		"eslint": "^7.1.0",
+		"typescript": "^4.0.2"
+	}
+}
