@@ -1,27 +1,30 @@
-# Hello World Sample
+# VS Code Extension Sync Test Sample
 
-This is a Hello World example that shows you how to use VS Code API.
+This is a sample extension using the Extension Global State Sync API.
 
-Guide for this sample: https://code.visualstudio.com/api/get-started/your-first-extension.
+## Steps
 
-## Demo
+### Package the extension
+```
+vsce package
+```
 
-![demo](demo.gif)
+### Open two instances of Code - Insiders
+```
+code-insiders --user-data-dir pc1 --extensions-dir pc1-ext --enable-proposed-api vscode-sbatten.vscode-ext-sync-test
+code-insiders --user-data-dir pc2 --extensions-dir pc2-ext --enable-proposed-api vscode-sbatten.vscode-ext-sync-test
+```
 
-## VS Code API
+### Sign in and run commands
+1. Sign into Settings+Extension Sync on both windows
+2. **Window 1:** Run command `Push Sync State`
+3. **Window 1:** Force sync
+4. **Window 2:** Force sync
+5. **Window 2:** Run command `Check Sync State`
 
-### `vscode` module
 
-- [`commands.registerCommand`](https://code.visualstudio.com/api/references/vscode-api#commands.registerCommand)
-- [`window.showInformationMessage`](https://code.visualstudio.com/api/references/vscode-api#window.showInformationMessage)
 
-### Contribution Points
 
-- [`contributes.commands`](https://code.visualstudio.com/api/references/contribution-points#contributes.commands)
 
-## Running the Sample
 
-- Run `npm install` in terminal to install dependencies
-- Run the `Run Extension` target in the Debug View. This will:
-	- Start a task `npm: watch` to compile the code
-	- Run the extension in a new VS Code window
+
